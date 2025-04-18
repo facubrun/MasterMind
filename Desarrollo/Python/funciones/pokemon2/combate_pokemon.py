@@ -6,7 +6,7 @@ from pokemon2.pokeLoad import get_all_pokemons
 
 
 def clear_console():
-    os.system("cls" if os.name == "nt" else "clear")
+    os.system("cls")
 
 
 def get_player_profile(pokemon_list):
