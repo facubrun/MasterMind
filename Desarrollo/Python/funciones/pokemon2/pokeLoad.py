@@ -6,6 +6,7 @@ pokemon_base = {
     "name": "",
     "attacks": None,
     "current_health": 100,
+    "base_health": 100,
     "level": 1,
     "type": None,
     "current_exp": 0
@@ -33,8 +34,8 @@ def get_pokemon(index):
             "min_level": attack_item.find("th")[1].text,
             "damage": int(attack_item.find("td")[3].text.replace("--","0"))
         }
-        new_pokemon["attacks"].append(attack)
-
+        if attack["damage"] > 0:
+            new_pokemon["attacks"].append(attack)
     return new_pokemon
 
 def get_all_pokemons():
@@ -54,5 +55,3 @@ def get_all_pokemons():
             pickle.dump(all_pokemons, pokefile)
 
     return all_pokemons
-
-print(get_all_pokemons())
