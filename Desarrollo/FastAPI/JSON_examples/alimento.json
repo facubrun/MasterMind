@@ -1,0 +1,7 @@
+{
+    "nombre" : "Arroz con leche",
+    "calorias" : 116,
+    "proteinas" : 25.52,
+    "postre" : true,
+    "grasas" : null 
+}

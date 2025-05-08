@@ -1,0 +1,20 @@
+{
+    "alimentos" : [
+        {
+            "nombre" : "Arroz con leche",
+            "calorias" : 116,
+            "proteinas" : 25.52,
+            "postre" : true,
+            "grasas" : null,
+            "ingredientes" : null 
+        },
+        {
+            "nombre" : "Ñoquis con salsa rosa",
+            "calorias" : 690,
+            "proteinas" : 29.20,
+            "postre" : false,
+            "grasas" : 13.10,
+            "ingredientes": ["papa", "tomate", "queso"] 
+        }
+    ]
+}
