@@ -1,5 +1,9 @@
 from fastapi import FastAPI
+import json
 
+# Carga de datos de prueba
+file = open("datos/alimentos.json")
+alimentos = json.load(file)
 
 tags_metadata = [
     {
@@ -34,4 +38,4 @@ async def read_root():
 @app.get("/ingredientes",tags=["ingredientes"])
 async def read_ingredients():
     #await pedir datos
-    return {"Objeto": "ingredientes"}
+    return alimentos
