@@ -1,11 +1,37 @@
 from fastapi import FastAPI
 
+
+tags_metadata = [
+    {
+        "name" : "ingredientes",
+        "description" : "Operaciones relacionadas con el CRUD de ingredientes." 
+    }
+]
 # Objeto app de tipo FastAPI
-app = FastAPI()
+app = FastAPI(
+    title="FoodAPI",
+    description="ApiRestFul para la gestión de alimentos y planes nutricionales",
+    version="1.0",
+    contact={
+        "name" : "Facundo Brun",
+        "url" : "https://github.com/facubrun"
+    },
+    license_info={
+        "name" : "Apache 2.0",
+        "url" : "https://apache.org/licenses/LICENSE-2.0.html"
+    },
+    openapi_tags=tags_metadata,
+    )
 
 # Configuracion del APIRestFUL
 
-# Entrada GET http://localhost/
+# Endpoint GET /
 @app.get("/")
-def read_root():
+async def read_root():
     return {"Hello": "World"}
+
+# Endpoint GET /ingredientes
+@app.get("/ingredientes",tags=["ingredientes"])
+async def read_ingredients():
+    #await pedir datos
+    return {"Objeto": "ingredientes"}
