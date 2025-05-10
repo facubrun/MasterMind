@@ -1,0 +1,60 @@
+{
+  "marcas":[
+    { "id": 1,  "nombre": "Corolla",     "marca": "Toyota",         "pais_origen": "Japón",          "anio_fundacion": 1937 },
+    { "id": 2,  "nombre": "Hilux",       "marca": "Toyota",         "pais_origen": "Japón",          "anio_fundacion": 1937 },
+    { "id": 3,  "nombre": "Yaris",       "marca": "Toyota",         "pais_origen": "Japón",          "anio_fundacion": 1937 },
+    { "id": 4,  "nombre": "Camry",       "marca": "Toyota",         "pais_origen": "Japón",          "anio_fundacion": 1937 },
+    { "id": 5,  "nombre": "RAV4",        "marca": "Toyota",         "pais_origen": "Japón",          "anio_fundacion": 1937 },
+
+    { "id": 6,  "nombre": "Focus",       "marca": "Ford",           "pais_origen": "Estados Unidos", "anio_fundacion": 1903 },
+    { "id": 7,  "nombre": "Fiesta",      "marca": "Ford",           "pais_origen": "Estados Unidos", "anio_fundacion": 1903 },
+    { "id": 8,  "nombre": "Mustang",     "marca": "Ford",           "pais_origen": "Estados Unidos", "anio_fundacion": 1903 },
+    { "id": 9,  "nombre": "Explorer",    "marca": "Ford",           "pais_origen": "Estados Unidos", "anio_fundacion": 1903 },
+    { "id": 10, "nombre": "F-150",       "marca": "Ford",           "pais_origen": "Estados Unidos", "anio_fundacion": 1903 },
+
+    { "id": 11, "nombre": "Golf",        "marca": "Volkswagen",     "pais_origen": "Alemania",       "anio_fundacion": 1937 },
+    { "id": 12, "nombre": "Polo",        "marca": "Volkswagen",     "pais_origen": "Alemania",       "anio_fundacion": 1937 },
+    { "id": 13, "nombre": "Tiguan",      "marca": "Volkswagen",     "pais_origen": "Alemania",       "anio_fundacion": 1937 },
+    { "id": 14, "nombre": "Passat",      "marca": "Volkswagen",     "pais_origen": "Alemania",       "anio_fundacion": 1937 },
+    { "id": 15, "nombre": "Jetta",       "marca": "Volkswagen",     "pais_origen": "Alemania",       "anio_fundacion": 1937 },
+
+    { "id": 16, "nombre": "Elantra",     "marca": "Hyundai",        "pais_origen": "Corea del Sur",  "anio_fundacion": 1967 },
+    { "id": 17, "nombre": "Tucson",      "marca": "Hyundai",        "pais_origen": "Corea del Sur",  "anio_fundacion": 1967 },
+    { "id": 18, "nombre": "Santa Fe",    "marca": "Hyundai",        "pais_origen": "Corea del Sur",  "anio_fundacion": 1967 },
+    { "id": 19, "nombre": "i10",         "marca": "Hyundai",        "pais_origen": "Corea del Sur",  "anio_fundacion": 1967 },
+    { "id": 20, "nombre": "Creta",       "marca": "Hyundai",        "pais_origen": "Corea del Sur",  "anio_fundacion": 1967 },
+
+    { "id": 21, "nombre": "Cruze",       "marca": "Chevrolet",      "pais_origen": "Estados Unidos", "anio_fundacion": 1911 },
+    { "id": 22, "nombre": "Onix",        "marca": "Chevrolet",      "pais_origen": "Estados Unidos", "anio_fundacion": 1911 },
+    { "id": 23, "nombre": "Tracker",     "marca": "Chevrolet",      "pais_origen": "Estados Unidos", "anio_fundacion": 1911 },
+    { "id": 24, "nombre": "Camaro",      "marca": "Chevrolet",      "pais_origen": "Estados Unidos", "anio_fundacion": 1911 },
+    { "id": 25, "nombre": "S10",         "marca": "Chevrolet",      "pais_origen": "Estados Unidos", "anio_fundacion": 1911 },
+
+    { "id": 26, "nombre": "Civic",       "marca": "Honda",          "pais_origen": "Japón",          "anio_fundacion": 1948 },
+    { "id": 27, "nombre": "Accord",      "marca": "Honda",          "pais_origen": "Japón",          "anio_fundacion": 1948 },
+    { "id": 28, "nombre": "CR-V",        "marca": "Honda",          "pais_origen": "Japón",          "anio_fundacion": 1948 },
+    { "id": 29, "nombre": "Fit",         "marca": "Honda",          "pais_origen": "Japón",          "anio_fundacion": 1948 },
+    { "id": 30, "nombre": "HR-V",        "marca": "Honda",          "pais_origen": "Japón",          "anio_fundacion": 1948 },
+
+    { "id": 31, "nombre": "Serie 1",     "marca": "BMW",            "pais_origen": "Alemania",       "anio_fundacion": 1916 },
+    { "id": 32, "nombre": "Serie 3",     "marca": "BMW",            "pais_origen": "Alemania",       "anio_fundacion": 1916 },
+    { "id": 33, "nombre": "Serie 5",     "marca": "BMW",            "pais_origen": "Alemania",       "anio_fundacion": 1916 },
+    { "id": 34, "nombre": "X3",          "marca": "BMW",            "pais_origen": "Alemania",       "anio_fundacion": 1916 },
+    { "id": 35, "nombre": "X5",          "marca": "BMW",            "pais_origen": "Alemania",       "anio_fundacion": 1916 },
+
+    { "id": 36, "nombre": "Clase A",     "marca": "Mercedes-Benz",  "pais_origen": "Alemania",       "anio_fundacion": 1926 },
+    { "id": 37, "nombre": "Clase C",     "marca": "Mercedes-Benz",  "pais_origen": "Alemania",       "anio_fundacion": 1926 },
+    { "id": 38, "nombre": "Clase E",     "marca": "Mercedes-Benz",  "pais_origen": "Alemania",       "anio_fundacion": 1926 },
+    { "id": 39, "nombre": "GLA",         "marca": "Mercedes-Benz",  "pais_origen": "Alemania",       "anio_fundacion": 1926 },
+    { "id": 40, "nombre": "GLC",         "marca": "Mercedes-Benz",  "pais_origen": "Alemania",       "anio_fundacion": 1926 },
+
+    { "id": 41, "nombre": "Impreza",     "marca": "Subaru",         "pais_origen": "Japón",          "anio_fundacion": 1953 },
+    { "id": 42, "nombre": "Forester",    "marca": "Subaru",         "pais_origen": "Japón",          "anio_fundacion": 1953 },
+    { "id": 43, "nombre": "Legacy",      "marca": "Subaru",         "pais_origen": "Japón",          "anio_fundacion": 1953 },
+
+    { "id": 44, "nombre": "Model S",     "marca": "Tesla",          "pais_origen": "Estados Unidos", "anio_fundacion": 2003 },
+    { "id": 45, "nombre": "Model 3",     "marca": "Tesla",          "pais_origen": "Estados Unidos", "anio_fundacion": 2003 },
+    { "id": 46, "nombre": "Model X",     "marca": "Tesla",          "pais_origen": "Estados Unidos", "anio_fundacion": 2003 },
+    { "id": 47, "nombre": "Model Y",     "marca": "Tesla",          "pais_origen": "Estados Unidos", "anio_fundacion": 2003 }
+  ]
+}
