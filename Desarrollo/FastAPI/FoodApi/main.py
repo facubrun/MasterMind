@@ -1,11 +1,12 @@
 from fastapi import FastAPI, Response, status
 import json
+from models import Ingrediente
 from fooddata import FoodData
 from docs import tags_metadata
 
 # Carga de datos de prueba
 food = FoodData()
-
+    
 # Objeto app de tipo FastAPI
 app = FastAPI(
     title="FoodAPI",
@@ -52,6 +53,21 @@ async def read_ingredient(ingrediente_id: int, response: Response):
     else:
         response.status_code = status.HTTP_404_NOT_FOUND
         return {"error", str(ingrediente_id) + " no encontrado"}
+
+
+@app.post("/ingredientes", tags=["ingredientes"])
+async def write_ingredients(ingrediente: Ingrediente):
+    return await food.write_ingrediente(ingrediente)
+
+
+@app.put("/ingredientes/{ingrediente_id}", tags=["ingredientes"])
+async def update_ingredients(ingrediente_id: int, ingrediente : Ingrediente):
+    return await food.update_ingrediente(ingrediente_id, ingrediente)
+
+
+@app.put("/ingredientes/{ingrediente_id}", tags=["ingredientes"])
+async def delete_ingredients(ingrediente_id: int):
+    return await food.delete_ingrediente(ingrediente_id)
 
 
 

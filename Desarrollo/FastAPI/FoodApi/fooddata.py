@@ -1,11 +1,14 @@
 import json
 
+from models import Ingrediente
+
 # Clase que nos permite trabajar con datos de prueba
 
 class FoodData:
 
     alimentos=[]
     platos=[]
+    fileAlimentos = None
 
     def __init__(self):
         # Carga del fichero de datos de prueba
@@ -38,6 +41,49 @@ class FoodData:
                 break
         return alimento
     
+
+    # Recibimos y guardamos un nuevo ingrediente
+    async def write_ingrediente(self, ingrediente: Ingrediente):
+        self.fileAlimentos = open('data/alimentos.json','w')
+        #Conseguimos el último id de la lista
+        ultimo_alimento = self.alimentos['alimentos'][-1]['id']
+        #Añadimos un nuevo id al ingrediente nuevo
+        ingredienteDict = ingrediente.model_dump()
+        ingredienteDict['id'] = ultimo_alimento + 1
+        self.alimentos['alimentos'].append(ingredienteDict)
+        json.dump(self.alimentos,self.fileAlimentos,indent=2)
+        self.fileAlimentos.close()
+        return ingredienteDict
+    
+    async def update_ingrediente(self, ingrediente_id: int, ingrediente: Ingrediente):
+        self.fileAlimentos = open('data/alimentos.json', 'w')
+        # Buscamos el ingrediente
+        ingrediente_encontrado = None
+        ingrediente_pos = 0
+        # Recorremos los datos json
+        for item in self.alimentos['alimentos']:
+            # Comparamos ids
+            if (item['id'] == ingrediente_id):
+                ingrediente_encontrado = item
+                break
+            ingrediente_pos += 1
+
+        # Si se encontró el ing
+        if(ingrediente_encontrado):
+            # Actualizamos
+            ingredienteDict = ingrediente.model_dump()
+            for elem in ingredienteDict:
+                if(ingredienteDict[elem]):
+                #cambiamos el valor
+                    self.alimentos['alimentos'][ingrediente_pos][elem] = ingredienteDict[elem]
+            json.dump(self.alimentos,self.fileAlimentos,indent=2)
+            self.fileAlimentos.close()
+            return self.alimentos['alimentos'][ingrediente_pos]
+        else:
+            return None
+        
+    async def delete_ingrediente(self,ingrediente_id):
+        return
 
     #PLATOS    
     async def get_allPlatos(self):
