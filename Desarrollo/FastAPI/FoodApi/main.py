@@ -65,7 +65,7 @@ async def update_ingredients(ingrediente_id: int, ingrediente : Ingrediente):
     return await food.update_ingrediente(ingrediente_id, ingrediente)
 
 
-@app.put("/ingredientes/{ingrediente_id}", tags=["ingredientes"])
+@app.delete("/ingredientes/{ingrediente_id}", tags=["ingredientes"])
 async def delete_ingredients(ingrediente_id: int):
     return await food.delete_ingrediente(ingrediente_id)
 
