@@ -144,6 +144,30 @@
         }
       ],
       "id": 5
+    },
+    {
+      "nombre": "Prueba plato",
+      "tipo": "Principal",
+      "ingredientes": [
+        {
+          "id": 455,
+          "cant": 10,
+          "ud": "ml"
+        }
+      ],
+      "id": 6
+    },
+    {
+      "nombre": "Milanesa napolitana",
+      "tipo": "Principal",
+      "ingredientes": [
+        {
+          "id": 433,
+          "cant": 400,
+          "ud": "gr"
+        }
+      ],
+      "id": 7
     }
   ]
 }

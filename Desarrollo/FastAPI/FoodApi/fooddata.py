@@ -1,6 +1,6 @@
 import json
 
-from models import Ingrediente
+from models import Ingrediente, Plato
 
 # Clase que nos permite trabajar con datos de prueba
 
@@ -9,6 +9,7 @@ class FoodData:
     alimentos=[]
     platos=[]
     fileAlimentos = None
+    filePlatos = None
 
     def __init__(self):
         # Carga del fichero de datos de prueba
@@ -101,7 +102,7 @@ class FoodData:
             self.alimentos['alimentos'].pop(ingrediente_pos)
             json.dump(self.alimentos,self.fileAlimentos,indent=2)
             self.fileAlimentos.close()
-            return self.alimentos['alimentos'][ingrediente_pos]
+            return {"info" : "ingrediente " + str(ingrediente_id) + "borrado correctamente."}
         else:
             return None
 
@@ -130,3 +131,17 @@ class FoodData:
                     ingrediente = await self.get_ingrediente(ingrediente_id)
                     break
         return ingrediente
+    
+
+# Recibimos y guardamos un nuevo plato
+    async def write_plato(self, plato: Plato):
+        self.filePlatos = open('data/platos.json','w')
+        #Conseguimos el último id de la lista
+        ultimo_plato = self.platos['platos'][-1]['id']
+        #Añadimos un nuevo id al plato nuevo
+        platoDict = plato.model_dump()
+        platoDict['id'] = ultimo_plato + 1
+        self.platos['platos'].append(platoDict)
+        json.dump(self.platos,self.filePlatos,indent=2)
+        self.filePlatos.close()
+        return platoDict

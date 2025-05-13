@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Response, status
 import json
-from models import Ingrediente
+from models import Ingrediente, Plato
 from fooddata import FoodData
 from docs import tags_metadata
 
@@ -102,3 +102,8 @@ async def read_plato_ingrediente(plato_id: int, ingrediente_id:int, response: Re
     else:
         response.status_code = status.HTTP_404_NOT_FOUND
         return {"error", "plato "+ str(plato_id) + ", ingrediente " + str(ingrediente_id) + " no encontrado"}
+    
+
+@app.post("/platos", tags=["platos"])
+async def write_platos(plato: Plato):
+    return await food.write_plato(plato)
