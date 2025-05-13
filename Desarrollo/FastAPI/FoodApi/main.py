@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Response, status
+from fastapi import Body, FastAPI, Response, status
 import json
 from models import Ingrediente, Plato
 from fooddata import FoodData
@@ -69,6 +69,10 @@ async def update_ingredients(ingrediente_id: int, ingrediente : Ingrediente):
 async def delete_ingredients(ingrediente_id: int):
     return await food.delete_ingrediente(ingrediente_id)
 
+@app.post("/ingredientes_platos", tags=["ingredientes"])
+async def write_ingredients_platos(ingrediente: Ingrediente, plato: Plato):
+    return await food.write_ingrediente_plato(ingrediente, plato)
+
 
 
 # PLATOS
@@ -105,5 +109,5 @@ async def read_plato_ingrediente(plato_id: int, ingrediente_id:int, response: Re
     
 
 @app.post("/platos", tags=["platos"])
-async def write_platos(plato: Plato):
-    return await food.write_plato(plato)
+async def write_platos(plato: Plato, tiempo_destacado : int = Body()):
+    return await food.write_plato(plato, tiempo_destacado)

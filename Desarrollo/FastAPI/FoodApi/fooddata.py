@@ -6,10 +6,12 @@ from models import Ingrediente, Plato
 
 class FoodData:
 
-    alimentos=[]
-    platos=[]
+    alimentos= []
+    platos= []
+    destacados = []
     fileAlimentos = None
     filePlatos = None
+    fileDestacados = None
 
     def __init__(self):
         # Carga del fichero de datos de prueba
@@ -19,6 +21,9 @@ class FoodData:
         self.filePlatos=open('data/platos.json')
         self.platos = json.load(self.filePlatos)
         self.filePlatos.close()
+        self.fileDestacados=open('data/destacados.json')
+        self.destacados = json.load(self.fileDestacados)
+        self.fileDestacados.close()
 
     # INGREDIENTES
     # Devolución asincrona de datos de alimentos
@@ -106,7 +111,16 @@ class FoodData:
         else:
             return None
 
-    #PLATOS    
+    async def write_ingrediente_plato(self, ingrediente: Ingrediente, plato: Plato):
+        ingrediente = await self.write_ingrediente(ingrediente)
+        # Serializamos para añadir id
+        platoDict = plato.model_dump()
+        platoDict['ingredientes'][0]['id'] = ingrediente['id']
+        plato_con_ingrediente_id = Plato.model_validate(platoDict)
+        platoDict = await self.write_plato(plato_con_ingrediente_id)
+        return dict([('ingrediente', ingrediente),('plato', platoDict)])
+
+#PLATOS    
     async def get_allPlatos(self):
         return self.platos
 
@@ -134,7 +148,7 @@ class FoodData:
     
 
 # Recibimos y guardamos un nuevo plato
-    async def write_plato(self, plato: Plato):
+    async def write_plato(self, plato: Plato, tiempoDestacado: int):
         self.filePlatos = open('data/platos.json','w')
         #Conseguimos el último id de la lista
         ultimo_plato = self.platos['platos'][-1]['id']
@@ -143,5 +157,24 @@ class FoodData:
         platoDict['id'] = ultimo_plato + 1
         self.platos['platos'].append(platoDict)
         json.dump(self.platos,self.filePlatos,indent=2)
+        # Añadimos a destacado
+        destacadoDict = await self.write_destacado(platoDict, tiempoDestacado)
         self.filePlatos.close()
         return platoDict
+    
+# DESTACADOS
+
+# Añadimos un nuevo plato destacado
+    async def write_destacado(self, plato: Plato, tiempo_destacado:int):
+        self.fileDestacados=open('data/destacados.json','w')
+        #Conseguimos el último id de la lista
+        ultimo_destacado = self.destacados['destacados'][-1]['id']
+        #Añadimos un nuevo destacado
+        destacadoDict = {}
+        destacadoDict['id']=ultimo_destacado + 1
+        destacadoDict['id_plato'] = plato['id']
+        destacadoDict['tiempo'] = tiempo_destacado
+        self.destacados['destacados'].append(destacadoDict)
+        json.dump(self.destacados,self.fileDestacados,indent=2)
+        self.fileDestacados.close()
+        return destacadoDict
