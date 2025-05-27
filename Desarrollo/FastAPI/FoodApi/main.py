@@ -1,5 +1,5 @@
 from typing import Annotated
-from fastapi import Body, FastAPI, Response, status, Query
+from fastapi import Body, FastAPI, Response, status, Query, Path
 import json
 from models import Ingrediente, Plato
 from fooddata import FoodData
@@ -38,7 +38,8 @@ async def read_root():
 # INGREDIENTES
 @app.get("/ingredientes",tags=["ingredientes"])
 async def read_ingredients(total:int,skip:int=0, todos:bool | None=None, filtronombre: Annotated[str | None, 
-                        Query(min_length=3, max_length=10)] = None):
+                        Query(min_length=3, max_length=10)] = None): # Si es path parameter, usamos annotated con Path 
+                        #Si es query parameter, usamos annotated con Query
     #await pedir datos
     if(todos):
         return await food.get_allIngredientes()
@@ -46,7 +47,8 @@ async def read_ingredients(total:int,skip:int=0, todos:bool | None=None, filtron
         return await food.get_ingredientes(skip, total, filtronombre)
 
 @app.get("/ingredientes/{ingrediente_id}", tags=["ingredientes"], status_code=status.HTTP_200_OK)
-async def read_ingredient(ingrediente_id: int, response: Response):
+async def read_ingredient(ingrediente_id: Annotated[int | None, Path(ge=0)], 
+                          response: Response):
     # Buscamos el ingrediente
     ingrediente = await food.get_ingrediente(ingrediente_id)
     # Si encontramos ingrediente, lo devolvemos
