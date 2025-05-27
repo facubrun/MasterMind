@@ -146,160 +146,16 @@
       "id": 5
     },
     {
-      "nombre": "Prueba plato",
-      "tipo": "Principal",
+      "nombre": "Inca cola",
+      "tipo": "bebida",
       "ingredientes": [
         {
-          "id": 455,
-          "cant": 10,
+          "id": 433,
+          "cant": 400,
           "ud": "ml"
         }
       ],
       "id": 6
-    },
-    {
-      "nombre": "Milanesa napolitana",
-      "tipo": "Principal",
-      "ingredientes": [
-        {
-          "id": 433,
-          "cant": 400,
-          "ud": "gr"
-        }
-      ],
-      "id": 7
-    },
-    {
-      "nombre": "Plato con ingrediente",
-      "tipo": "Postre",
-      "ingredientes": [
-        {
-          "id": 0,
-          "cant": 250,
-          "ud": "gr"
-        }
-      ],
-      "id": 8
-    },
-    {
-      "nombre": "Plato con ingrediente",
-      "tipo": "Postre",
-      "ingredientes": [
-        {
-          "id": 761,
-          "cant": 250,
-          "ud": "gr"
-        }
-      ],
-      "id": 9
-    },
-    {
-      "nombre": "Milanesa napolitana",
-      "tipo": "Principal",
-      "ingredientes": [
-        {
-          "id": 433,
-          "cant": 400,
-          "ud": "gr"
-        }
-      ],
-      "id": 10
-    },
-    {
-      "nombre": "Milanesa napolitana",
-      "tipo": "Principal",
-      "ingredientes": [
-        {
-          "id": 433,
-          "cant": 400,
-          "ud": "gr"
-        }
-      ],
-      "id": 11
-    },
-    {
-      "nombre": "Milanesa napolitana",
-      "tipo": "Principal",
-      "ingredientes": [
-        {
-          "id": 433,
-          "cant": 400,
-          "ud": "gr"
-        }
-      ],
-      "id": 12
-    },
-    {
-      "nombre": "Milanesa napolitana",
-      "tipo": "Principal",
-      "ingredientes": [
-        {
-          "id": 433,
-          "cant": 400,
-          "ud": "gr"
-        }
-      ],
-      "id": 13
-    },
-    {
-      "nombre": "Milanesa napolitana",
-      "tipo": "Principal",
-      "ingredientes": [
-        {
-          "id": 433,
-          "cant": 400,
-          "ud": "gr"
-        }
-      ],
-      "id": 14
-    },
-    {
-      "nombre": "Milanesa napolitana",
-      "tipo": "Principal",
-      "ingredientes": [
-        {
-          "id": 433,
-          "cant": 400,
-          "ud": "gr"
-        }
-      ],
-      "id": 15
-    },
-    {
-      "nombre": "Milanesa napolitana",
-      "tipo": "Principal",
-      "ingredientes": [
-        {
-          "id": 433,
-          "cant": 400,
-          "ud": "gr"
-        }
-      ],
-      "id": 16
-    },
-    {
-      "nombre": "Milanesa napolitana",
-      "tipo": "Principal",
-      "ingredientes": [
-        {
-          "id": 433,
-          "cant": 400,
-          "ud": "gr"
-        }
-      ],
-      "id": 17
-    },
-    {
-      "nombre": "Milanesa napolitana",
-      "tipo": "Principal",
-      "ingredientes": [
-        {
-          "id": 433,
-          "cant": 400,
-          "ud": "gr"
-        }
-      ],
-      "id": 18
     }
   ]
 }

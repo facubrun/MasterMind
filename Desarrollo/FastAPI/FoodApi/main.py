@@ -1,4 +1,5 @@
-from fastapi import Body, FastAPI, Response, status
+from typing import Annotated
+from fastapi import Body, FastAPI, Response, status, Query
 import json
 from models import Ingrediente, Plato
 from fooddata import FoodData
@@ -36,12 +37,13 @@ async def read_root():
 
 # INGREDIENTES
 @app.get("/ingredientes",tags=["ingredientes"])
-async def read_ingredients(total:int,skip:int=0, todos:bool | None=None):
+async def read_ingredients(total:int,skip:int=0, todos:bool | None=None, filtronombre: Annotated[str | None, 
+                        Query(min_length=3, max_length=10)] = None):
     #await pedir datos
     if(todos):
         return await food.get_allIngredientes()
     else:
-        return await food.get_ingredientes(skip, total)
+        return await food.get_ingredientes(skip, total, filtronombre)
 
 @app.get("/ingredientes/{ingrediente_id}", tags=["ingredientes"], status_code=status.HTTP_200_OK)
 async def read_ingredient(ingrediente_id: int, response: Response):
