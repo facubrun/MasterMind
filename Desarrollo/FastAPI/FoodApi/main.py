@@ -1,9 +1,12 @@
 from typing import Annotated
-from fastapi import Body, FastAPI, Response, status, Query, Path
+from fastapi import Body, FastAPI, HTTPException, Response, status, Query, Path
 import json
+from fastapi.exceptions import RequestValidationError
+from starlette.exceptions import HTTPException as StarletteHTTPException
 from models import Ingrediente, Plato
 from fooddata import FoodData
 from docs import tags_metadata
+from fastapi.responses import JSONResponse
 
 # Carga de datos de prueba
 food = FoodData()
@@ -23,6 +26,26 @@ app = FastAPI(
     },
     openapi_tags=tags_metadata,
     )
+
+# Manejo de excepciones
+
+@app.exception_handler(StarletteHTTPException)
+async def http_exception_handler(request, exc):
+    return JSONResponse(
+        status_code= exc.status_code,
+        content={"error": exc.detail},
+    )
+
+@app.exception_handler(RequestValidationError)
+async def http_exception_handler(request, exc):
+    # Conversion a dict
+    errorDict = eval(str(exc))
+
+    return JSONResponse(
+        status_code= 440,
+        content={"error": errorDict[0]["msg"]},  # Extraemos el mensaje de error del dict
+    )
+
 
 # Configuracion del APIRestFUL
 
@@ -52,11 +75,12 @@ async def read_ingredient(ingrediente_id: Annotated[int | None, Path(ge=0)],
     # Buscamos el ingrediente
     ingrediente = await food.get_ingrediente(ingrediente_id)
     # Si encontramos ingrediente, lo devolvemos
-    if(ingrediente):
-        return ingrediente
-    else:
-        response.status_code = status.HTTP_404_NOT_FOUND
-        return {"error", str(ingrediente_id) + " no encontrado"}
+    if(not ingrediente):
+        raise HTTPException(
+            status_code= 404,
+            detail="Ingrediente con id " + str(ingrediente_id) + " no encontrado"
+        )
+    return ingrediente
 
 
 @app.post("/ingredientes", tags=["ingredientes"])
@@ -93,11 +117,12 @@ async def read_plato(plato_id: int, response: Response):
     # Buscamos el plato
     plato = await food.get_plato(plato_id)
     # Si encontramos plato, lo devolvemos
-    if(plato):
-        return plato
-    else:
-        response.status_code = status.HTTP_404_NOT_FOUND
-        return {"error", str(plato_id) + " no encontrado"}
+    if(not plato):
+        raise HTTPException(
+            status_code= 404,
+            detail="Plato con id " + str(plato_id) + " no encontrado"
+        )
+    return plato
     
 
 @app.get("/platos/{plato_id}/ingredientes/{ingrediente_id}", tags=["platos"], status_code=status.HTTP_200_OK)
