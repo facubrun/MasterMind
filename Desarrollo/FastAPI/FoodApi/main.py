@@ -88,9 +88,9 @@ async def read_ingredients(total: Annotated[int,
     else:
         return await food.get_ingredientes(skip, total, filtronombre)
 
-@app.get("/ingredientes/{ingrediente_id}", tags=["ingredientes"], status_code=status.HTTP_200_OK)
-async def read_ingredient(ingrediente_id: Annotated[int | None, Path(ge=0)], 
-                          response: Response):
+@app.get("/ingredientes/{ingrediente_id}", tags=["ingredientes"], status_code=status.HTTP_200_OK, summary="Buscar ingrediente",
+            description="Buscar ingrediente a través del id")
+async def read_ingredient(ingrediente_id: Annotated[int | None, Path(description="id entero de busqueda", ge=0)], response: Response):
     # Buscamos el ingrediente
     ingrediente = await food.get_ingrediente(ingrediente_id)
     # Si encontramos ingrediente, lo devolvemos
