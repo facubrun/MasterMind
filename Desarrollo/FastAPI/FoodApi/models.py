@@ -35,3 +35,8 @@ class Usuario(BaseModel):
     apellidos: str
     email: str
     password: str
+
+class UsuarioOut(BaseModel): # Modelo para la salida de usuario sin password
+    nombre: str
+    apellidos: str
+    email: str

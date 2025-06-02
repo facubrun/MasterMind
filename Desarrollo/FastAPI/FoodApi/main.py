@@ -1,10 +1,10 @@
 import uvicorn
-from typing import Annotated
+from typing import Annotated, Any
 from fastapi import Body, FastAPI, HTTPException, Response, status, Query, Path
 import json
 from fastapi.exceptions import RequestValidationError
 from starlette.exceptions import HTTPException as StarletteHTTPException
-from models import Ingrediente, Plato
+from models import Ingrediente, Plato, Usuario, UsuarioOut
 from fooddata import FoodData
 from docs import tags_metadata
 from fastapi.responses import JSONResponse
@@ -149,6 +149,11 @@ async def read_plato_ingrediente(plato_id: int, ingrediente_id:int, response: Re
 @app.post("/platos", tags=["platos"])
 async def write_platos(plato: Plato, tiempo_destacado : int = Body()):
     return await food.write_plato(plato, tiempo_destacado)
+
+# USUARIOS
+@app.post("/usuarios", tags=["usuarios"], response_model=UsuarioOut)
+async def write_usuarios(usuario: Usuario) -> Any:
+    return await food.write_usuario(usuario)
 
 # DEBBUGGING
 if __name__ == "__main__":

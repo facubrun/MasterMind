@@ -1,11 +1,25 @@
 {
-    "usuarios": [
-        {
-            "id": 1,
-            "nombre": "nombre",
-            "apellidos": "apellidos",
-            "email": "email",
-            "password": "password"
-        }
-    ]
+  "usuarios": [
+    {
+      "id": 1,
+      "nombre": "nombre",
+      "apellidos": "apellidos",
+      "email": "email",
+      "password": "password"
+    },
+    {
+      "nombre": "Facu",
+      "apellidos": "Brun Lema",
+      "email": "facundo@mastermind.uy",
+      "password": "$2b$12$UHlai/xw8H9BCCamTsXNheJ30knmOKCPITLmbDU/trTpHYqdepC4K",
+      "id": 2
+    },
+    {
+      "nombre": "Facu",
+      "apellidos": "Brun Lema",
+      "email": "facundo@mastermind.uy",
+      "password": "$2b$12$/h8iIVNenuZQ42lMQ2cuceOgRJ6foflbrueG6DXrhAsmb10daDWbK",
+      "id": 3
+    }
+  ]
 }
