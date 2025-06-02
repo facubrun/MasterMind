@@ -29,3 +29,9 @@ class Plato(BaseModel):
     nombre: str
     tipo: TipoPlato
     ingredientes: list[IngredientePlato]
+
+class Usuario(BaseModel):
+    nombre: str
+    apellidos: str
+    email: str
+    password: str
