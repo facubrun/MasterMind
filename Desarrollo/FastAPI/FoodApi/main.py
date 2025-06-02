@@ -1,6 +1,6 @@
 import uvicorn
 from typing import Annotated, Any
-from fastapi import Body, FastAPI, HTTPException, Response, status, Query, Path
+from fastapi import Body, FastAPI, HTTPException, Response, status, Query, Path, BackgroundTasks
 import json
 from fastapi.exceptions import RequestValidationError
 from starlette.exceptions import HTTPException as StarletteHTTPException
@@ -69,9 +69,19 @@ async def read_root():
 
 # INGREDIENTES
 @app.get("/ingredientes",tags=["ingredientes"])
-async def read_ingredients(total:int,skip:int=0, todos:bool | None=None, filtronombre: Annotated[str | None, 
-                        Query(min_length=3, max_length=10)] = None): # Si es path parameter, usamos annotated con Path 
-                        #Si es query parameter, usamos annotated con Query
+async def read_ingredients(total: Annotated[int, 
+                                            Query( 
+                                                description="Total de ingredientes a devolver",
+                                            )],
+                           skip: int=0, 
+                           todos:bool | None=None,
+                           filtronombre: Annotated[str | None, 
+                                                Query( 
+                                                    description="Filtro de busqueda por nombre",
+                                                    min_length=3,
+                                                    max_length=10)] = None): 
+                        # Si es path parameter, usamos annotated con Path 
+                        # Si es query parameter, usamos annotated con Query
     #await pedir datos
     if(todos):
         return await food.get_allIngredientes()
@@ -151,8 +161,16 @@ async def write_platos(plato: Plato, tiempo_destacado : int = Body()):
     return await food.write_plato(plato, tiempo_destacado)
 
 # USUARIOS
+
+def enviar_correo_fake(email: str, message=""):
+    with open("log.txt", mode="w") as email_file:
+        content = f"notification for {email}: {message}"
+        email_file.write(content)
+
 @app.post("/usuarios", tags=["usuarios"], response_model=UsuarioOut)
-async def write_usuarios(usuario: Usuario) -> Any:
+async def write_usuarios(usuario: Usuario, background_tasks: BackgroundTasks) -> Any:
+    # tareas en segundo plano
+    background_tasks.add_task(enviar_correo_fake, "facu@facu.uy", message="fake correo")
     return await food.write_usuario(usuario)
 
 # DEBBUGGING

@@ -20,6 +20,13 @@
       "email": "facundo@mastermind.uy",
       "password": "$2b$12$/h8iIVNenuZQ42lMQ2cuceOgRJ6foflbrueG6DXrhAsmb10daDWbK",
       "id": 3
+    },
+    {
+      "nombre": "Zapi",
+      "apellidos": "Tutu",
+      "email": "facu@facu",
+      "password": "$2b$12$iuPxEWo/FylFdCDdKSHx5e5aiK07Hm9zkNLkWUm1VRLcWsHl5BLMG",
+      "id": 4
     }
   ]
 }
