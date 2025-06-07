@@ -69,15 +69,11 @@ async def read_root():
 
 # INGREDIENTES
 @app.get("/ingredientes",tags=["ingredientes"])
-async def read_ingredients(total: Annotated[int, 
-                                            Query( 
-                                                description="Total de ingredientes a devolver",
-                                            )],
+async def read_ingredients(total: Annotated[int, Query(description="Total de ingredientes a devolver",)],
                            skip: int=0, 
                            todos:bool | None=None,
                            filtronombre: Annotated[str | None, 
-                                                Query( 
-                                                    description="Filtro de busqueda por nombre",
+                                                Query(description="Filtro de busqueda por nombre",
                                                     min_length=3,
                                                     max_length=10)] = None): 
                         # Si es path parameter, usamos annotated con Path 
