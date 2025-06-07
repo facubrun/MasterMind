@@ -6845,6 +6845,24 @@
       "grasas": null,
       "fibra": null,
       "id": 761
+    },
+    {
+      "nombre": "Prueba",
+      "calorias": 20,
+      "carbohidratos": 4.0,
+      "proteinas": 1.0,
+      "grasas": 0.2,
+      "fibra": 1.5,
+      "id": 762
+    },
+    {
+      "nombre": "Prueba",
+      "calorias": 20,
+      "carbohidratos": 4.0,
+      "proteinas": 1.0,
+      "grasas": 0.2,
+      "fibra": 1.5,
+      "id": 763
     }
   ]
 }
