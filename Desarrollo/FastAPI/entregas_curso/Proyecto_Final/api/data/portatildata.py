@@ -1,6 +1,6 @@
 import json
 import os
-from api.utilidades.models import Portatil
+from api import Portatil
 
 
 # Clase que nos permite trabajar con los datos de laptops
