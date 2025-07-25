@@ -6,7 +6,6 @@ $contacts = $conn->query("SELECT * FROM contacts");
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
