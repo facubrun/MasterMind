@@ -1,11 +1,11 @@
 var array = ["aa", "bb", 3, [1, 2], {nombre: 'Nombre', apellido: 'Apellido'}];
 var objeto = {
-    nombre: 'Martin', 
-    apellido: 'Cristobal',
-    edad: 26,
-    coches: ['Ferrari', 'Lamborghini'],
+    nombre: 'name', 
+    apellido: 'none',
+    edad: 120,
+    libros: ['DUNE', 'Simbolos'],
     direccion: {
-        calle: 'texto de la calle',
+        calle: 'psje 88',
         numero: 4
     }
 }
@@ -16,14 +16,14 @@ var item1 = array[1];
 var indice = 4;
 var item4 = array[indice].nombre;
 
-var nombreObjeto = objeto.nombre;
-var textoCalle = objeto.coches[0];
+var objetoNombre = objeto.nombre;
+var calle = objeto.direccion.calle;
 
 
 var item50 = array[50];
-console.log(item50);
+console.log(item50); // item 50 no existe pero js no se rompe
 
-var piso = objeto.piso[1];
+var piso = objeto.piso[1]; // property piso no existe pero js no se rompe
 console.log(piso);
 
 var longitud = array.length

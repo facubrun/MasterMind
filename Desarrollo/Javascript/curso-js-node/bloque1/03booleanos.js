@@ -7,14 +7,14 @@ var b = 10;
 var aMayorQueb = a > b;
 // > < >= <= == === != !==
 
-console.log(a === b);
+console.log(a === b); // compara tanto valor como tipo, si alguno es distinto da false!
 
-var rangoInicio = 0;
-var rangoFinal = 100;
-var numeroAComparar = 101;
+var inicio = 0;
+var final = 100;
+var numero = 101;
 
-var mayorQueInicio = numeroAComparar > rangoInicio;
-var menorQueFinal = numeroAComparar < rangoFinal;
+var mayorQueInicio = numero > inicio;
+var menorQueFinal = numero < final;
 var dentroDeRango = mayorQueInicio && menorQueFinal;
 console.log(dentroDeRango);
 /* AND (&&) Tabla de verdad
@@ -36,19 +36,8 @@ console.log(dentroDeRango);
 0 : 1
 */
 
-var haHechoTrabajo = true;
+var TrabajoHecho = true;
 var notaExamenFinal = 10;
-var tieneFaltaTécnica = true;
-var aprobadoElCurso = (haHechoTrabajo || notaExamenFinal >= 5) && !tieneFaltaTécnica;
-console.log(aprobadoElCurso);
-
-// Realizar un programa que, dadas dos lineas en una dimension (dos rangos)
-// (a, b), (c, d) comprobar que las lineas se solapan o no se solapan
-
-var a = 5;
-var b = 20;
-var c = 10;
-var d = 25;
-//------a--------c------b------d---------
-
-var haySolape = true;
+var FaltaTecnica = true;
+var CursoAprobado = (TrabajoHecho || notaExamenFinal >= 5) && !FaltaTecnica;
+console.log(CursoAprobado);
